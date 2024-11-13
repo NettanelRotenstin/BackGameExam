@@ -12,6 +12,6 @@ app.use(express.json())
 app.use(cors())
 
 app.use(`/ceed`,ceed)
- 
+app.use(`/users`,userController)
 
 app.listen(PORT, () => { console.log(`server started on port ${PORT}`) })

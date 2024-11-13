@@ -1,10 +1,10 @@
 import { model, Schema } from "mongoose";
-import AmountOfMissiles from "../types/AmountOfMissiles";
 
-interface IOrganizasion extends Document {
-    name: string;
-    resources: [AmountOfMissiles];
-    budget: number;
+interface IUser extends Document {
+    username: string
+    password:string
+    organization:Organizasions
+    area?:areaEnum
 }
 
 const organizasionSchema = new Schema<IOrganizasion>({
