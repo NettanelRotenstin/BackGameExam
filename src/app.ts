@@ -3,6 +3,7 @@ import 'dotenv/config'
 import cors from 'cors'
 import http from "http"
 import { ceed } from "./Services/ceedService";
+import userController from "./Controllers/userController";
 
 
 const PORT = process.env.PORT || 3333

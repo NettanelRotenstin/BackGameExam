@@ -1,4 +1,4 @@
-export enum OrganizasionsEnum {
+export enum organizasionsEnum {
     IDFNorth = "IDF - North",
     IDFSouth = "IDF - South",
     IDFCenter = "IDF - Center",

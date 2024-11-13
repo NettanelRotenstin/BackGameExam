@@ -1,3 +1,6 @@
+import { Request, Response } from "express"
+import { loginService, registerService } from "../Services/userService"
+
 export const login = async(req:Request,res:Response) =>{
     try {
         const result = await loginService(req.body)
@@ -16,6 +19,6 @@ export const register = async(req:Request,res:Response) =>{
             newUser
         })
     } catch (error) {
-        res.status(500).json({})
+        res.status(500).json({msg:"can't create user"})
     }
 }
