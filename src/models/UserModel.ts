@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { Document, model, Schema } from "mongoose";
 import { organizasionsEnum } from "../types/Organizations";
 import { areaEnum } from "../types/Area";
 import { KindMissiles } from "../types/KindMissiles";
@@ -19,7 +19,7 @@ interface IUser extends Document {
     password: string
     organization: organizasionsEnum | undefined
     area?: areaEnum
-    resources?: [AmountOfMissiles]
+    resources: [AmountOfMissiles]
 }
 
 
@@ -39,8 +39,8 @@ const userSchema = new Schema<IUser>({
         type: String,
         enum: areaEnum
     },
-    resources:{
-        type:[amountMissilesSchema]
+    resources: {
+        type: [amountMissilesSchema]
     }
 });
 

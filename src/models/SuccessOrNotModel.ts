@@ -2,13 +2,13 @@ import { model, Schema } from "mongoose";
 import { KindMissiles } from "../types/KindMissiles";
 import { areaEnum } from "../types/Area";
 
-interface ISuccess extends Document {
+export interface ISuccess extends Document {
     missile: KindMissiles | undefined
     area:areaEnum
     success: boolean
 }
 
-const successSchema = new Schema<ISuccess>({
+export const successSchema = new Schema<ISuccess>({
     missile: {
         type: String,
         enum:KindMissiles,
