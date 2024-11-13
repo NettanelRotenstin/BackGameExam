@@ -17,10 +17,12 @@ const userSchema = new Schema<IUser>({
         type: String
     },
     organization: {
-        type: organizasionsEnum,
+        type: String,
+        enum:organizasionsEnum
     },
     area: {
-        type: areaEnum
+        type: String,
+        enum:areaEnum
     }
 });
 

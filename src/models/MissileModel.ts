@@ -5,7 +5,7 @@ export interface IMissile extends Document {
     name: string;
     description: string;
     speed: number;
-    intercepts: [KindMissiles]
+    intercepts: KindMissiles[]|undefined
     price: number;
 }
 
@@ -20,7 +20,8 @@ const missileSchema = new Schema<IMissile>({
         type: Number,
     },
     intercepts: {
-        type: [KindMissiles]
+        type: [String],
+        enum:KindMissiles
     },
     price: {
         type: Number,
