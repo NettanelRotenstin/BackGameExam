@@ -3,12 +3,14 @@ import { LoginDto } from "../types/DTO's/loginDTO"
 import { RegisterDTO } from "../types/DTO's/registerDto"
 import UserModel from "../models/UserModel"
 import { sign } from "jsonwebtoken"
+import OrganizasionModel from "../models/OrganizasionModel"
 
 export const registerService = async (user: RegisterDTO) => {
     try {
         const encPass = await hash(user.password, 10)
         const { username, area, organizasion } = user
-        const dbUser = new UserModel({ username, password: encPass, area, organizasion })
+        const org = await OrganizasionModel.findOne({ name: organizasion })
+        const dbUser = new UserModel({ username, password: encPass, area, organizasion, resources: org?.resources })
         return await dbUser.save()
     } catch (error) {
         console.log(`can't register`)

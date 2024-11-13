@@ -5,5 +5,5 @@ export interface RegisterDTO {
     username:string
     password:string
     organizasion:organizasionsEnum
-    area:areaEnum
+    area?:areaEnum
 }
