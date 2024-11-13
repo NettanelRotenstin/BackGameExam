@@ -18,7 +18,6 @@ export const wasIntercept = async(event:ISuccess)=>{
 
 export const relevantInterceptors = async(bumNmae:IMissile)=>{
     const missile = await MissileModel.findOne({name:bumNmae})
-    const time = missile?.speed
     return missile?.intercepts 
 }
 

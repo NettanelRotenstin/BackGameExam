@@ -14,18 +14,18 @@ const PORT = process.env.PORT || 3333
 const app = express()
 const httpServer = http.createServer(app)
 export const io = new Server(httpServer, {
-    cors: {
-      origin: "*",
-      methods: "*",
-    },  
-  });
+  cors: {
+    origin: "*",
+    methods: "*",
+  },
+});
 connectToMonge()
-io.on("connection",handelSocketConnection)
+io.on("connection", handelSocketConnection)
 
 app.use(express.json())
 app.use(cors())
 
-app.use(`/ceed`,ceedRouter)
-app.use(`/users`,userController)
+app.use(`/ceed`, ceedRouter)
+app.use(`/users`, userController)
 
 httpServer.listen(PORT, () => { console.log(`server started on port ${PORT}`) })
