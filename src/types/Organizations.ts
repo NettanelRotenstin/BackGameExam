@@ -1,4 +1,4 @@
-export enum KindMissiles {
+export enum OrganizasionsEnum {
     IDFNorth = "IDF - North",
     IDFSouth = "IDF - South",
     IDFCenter = "IDF - Center",

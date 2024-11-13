@@ -1,24 +1,28 @@
 import { model, Schema } from "mongoose";
+import { OrganizasionsEnum } from "../types/Organizations";
+import { areaEnum } from "../types/Area";
 
 interface IUser extends Document {
     username: string
-    password:string
-    organization:Organizasions
-    area?:areaEnum
+    password: string
+    organization: OrganizasionsEnum | undefined
+    area?: areaEnum
 }
 
-const organizasionSchema = new Schema<IOrganizasion>({
-    name: {
+const userSchema = new Schema<IUser>({
+    username: {
         type: String,
     },
-    resources: {
-        type: []
+    password: {
+        type: String
     },
-    budget: {
-        type: Number,
+    organization: {
+        type: OrganizasionsEnum,
     },
+    area: {
+        type: areaEnum
+    }
 });
 
-export default model<IOrganizasion>("organizasion", organizasionSchema);
+export default model<IUser>("user", userSchema);
 
- 
