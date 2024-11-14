@@ -23,7 +23,7 @@ export const successSchema = new Schema<ISuccess>({
     },
     success: {
         type: Boolean,
-        default:false
+        default:true
     }
 });
 
