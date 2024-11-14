@@ -3,9 +3,9 @@ import AmountOfMissiles from "../types/AmountOfMissiles";
 import { KindMissiles } from "../types/KindMissiles";
 
 interface IOrganizasion extends Document {
-    name: string;
+    name: String;
     resources: AmountOfMissiles[];
-    budget: number;
+    budget: Number;
 }
 
 const amountMissilesSchema = new Schema<AmountOfMissiles>({

@@ -1,8 +1,9 @@
-import { Document, model, Schema } from "mongoose";
+import mongoose, { Document, model, Schema } from "mongoose";
 import { organizasionsEnum } from "../types/Organizations";
 import { areaEnum } from "../types/Area";
 import { KindMissiles } from "../types/KindMissiles";
 import AmountOfMissiles from "../types/AmountOfMissiles";
+import { ISuccess, successSchema } from "./SuccessOrNotModel";
 
 const amountMissilesSchema = new Schema<AmountOfMissiles>({
     name: {
@@ -14,12 +15,13 @@ const amountMissilesSchema = new Schema<AmountOfMissiles>({
     }
 });
 
-interface IUser extends Document {
+export interface IUser extends Document {
     username: string
     password: string
     organization: organizasionsEnum | undefined
     area?: areaEnum
-    resources: [AmountOfMissiles]
+    resources: AmountOfMissiles[]
+    history: ISuccess[]
 }
 
 
@@ -41,6 +43,9 @@ const userSchema = new Schema<IUser>({
     },
     resources: {
         type: [amountMissilesSchema]
+    },
+    history: {
+        type: [successSchema]
     }
 });
 

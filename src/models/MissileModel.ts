@@ -2,11 +2,11 @@ import { Schema, Types, Document, model } from "mongoose";
 import { KindMissiles } from "../types/KindMissiles";
 
 export interface IMissile extends Document {
-    name: string;
-    description: string;
-    speed: number;
+    name: String;
+    description: String;
+    speed: Number;
     intercepts: KindMissiles[]|undefined
-    price: number;
+    price: Number;
 }
 
 const missileSchema = new Schema<IMissile>({
